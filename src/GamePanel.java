@@ -1,12 +1,10 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-import java.util.Timer;
 
 import javax.swing.JPanel;
 
@@ -34,17 +32,25 @@ public class GamePanel extends JPanel implements ActionListener {
 		this.setFocusable(true);  //ability to focus on screen on click in the window
 		this.setBackground(Color.black);
 		this.addKeyListener(new MyKeyAdapter());
-		
+		startGame();
 		
 	}
 	public void startGame() {
+		newApple();
+		running = true;
+		timer = new Timer(DELAY,this); // need to use javas.swing.timer for this and not java utils
+		timer.start();
 		
 	}
-	
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		draw(g);
 		
 	}
 	public void draw(Graphics g) {
+		
+	}
+	public void newApple() {
 		
 	}
 	public void move() {
